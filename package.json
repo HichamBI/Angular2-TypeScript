@@ -2,12 +2,10 @@
   "name": "Angular2-TypeScript",
   "version": "1.0.0",
   "scripts": {
-    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
-    "lite": "lite-server",
+    "start": "webpack-dev-server",
     "postinstall": "typings install",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w",
-    "typings": "typings"
+    "typings": "typings",
+    "build": "webpack"
   },
   "license": "ISC",
   "dependencies": {
@@ -29,16 +27,17 @@
     "zone.js": "^0.6.25"
   },
   "devDependencies": {
-    "concurrently": "^3.0.0",
-    "lite-server": "^2.2.2",
     "typescript": "^2.0.3",
-    "typings":"^1.4.0"
+    "typings":"^1.4.0",
+    "ts-loader": "0.8.2",
+    "webpack": "1.13.0",
+    "webpack-dev-server": "1.14.1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/HichamBI/Angular2-TypeScript.git"
   },
-  "keywords": ["angular2", "typescript", "spring"],
+  "keywords": ["angular2", "typescript", "spring", "rest"],
   "author": "Hicham BOUZIDI IDRISSI",
   "bugs": {
     "url": "https://github.com/HichamBI/Angular2-TypeScript/issues"

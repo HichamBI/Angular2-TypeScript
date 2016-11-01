@@ -16,5 +16,11 @@
 log/
 target/
 
+# Node
+node_modules/
+
+# TypeScript
+typings/
+
 # Tomcat Embedded
 tomcat.8080/
