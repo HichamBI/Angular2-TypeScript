@@ -56,7 +56,7 @@ import {BookService} from "./BookService";
 `],
     selector: 'my-app',
     template: `
-    <h2>Book List</h2>
+    <h2>My Book List</h2>
     <ul class="books">
       <li *ngFor="let book of bookList" (click)="onSelect(book)" [class.selected]="book === selectedBook">
         <span class="badge">{{book.iSBN}}</span> {{book.originalTitle}} 
@@ -68,7 +68,6 @@ import {BookService} from "./BookService";
 })
 
 export class AppComponent implements OnInit {
-    title = 'Tour of Heroes';
     bookList: Book[];
     selectedBook: Book;
 
