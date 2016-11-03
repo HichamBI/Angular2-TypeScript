@@ -54,7 +54,7 @@ import {BookService} from "./shared/book.service.ts";
     text-align: center;
   }
 `],
-    selector:'book-list-component',
+    selector: 'book-list-component',
     template: `
     <h2>Book List</h2>
     <ul class="books">
@@ -64,24 +64,23 @@ import {BookService} from "./shared/book.service.ts";
     </ul>
     <book-detail-component [book]="selectedBook"></book-detail-component>
 `,
-    providers: [BookService]
 })
 
 export class BookListComponent implements OnInit {
-    bookList: Book[];
-    selectedBook: Book;
+    bookList:Book[];
+    selectedBook:Book;
 
 
-    constructor(private bookService: BookService) {
+    constructor(private bookService:BookService) {
 
     }
 
-    ngOnInit(): void {
+    ngOnInit():void {
         this.bookService.getBookList().then(books => this.bookList = books);
     }
 
 
-    onSelect(book: Book): void {
+    onSelect(book:Book):void {
         this.selectedBook = book;
     }
 }

@@ -6,4 +6,5 @@ import { Component } from '@angular/core';
       <book-list-component></book-list-component>
     `,
 })
-export class AppComponent { }
+export class AppComponent {
+}

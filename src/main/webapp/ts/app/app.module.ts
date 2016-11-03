@@ -1,15 +1,14 @@
 import {NgModule}      from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {FormsModule}   from '@angular/forms';
-
+import { BrowserModule }      from '@angular/platform-browser';
 import {AppComponent}  from './app.component.ts';
-import {BookDetailComponent} from "./books/book-detail.component.ts";
+import {BookModule} from "./books/book.module";
 import {BookListComponent} from "./books/book-list.component";
 
 @NgModule({
-    imports: [BrowserModule, FormsModule],
-    declarations: [AppComponent, BookDetailComponent, BookListComponent],
+    imports: [BookModule, BrowserModule],
+    declarations: [AppComponent],
     bootstrap: [AppComponent]
 })
 
-export class AppModule {}
+export class AppModule {
+}
