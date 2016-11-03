@@ -20,9 +20,9 @@ module.exports = webpackMerge(commonConfig, {
     },
 
     plugins: [
-        new webpack.NoErrorsPlugin(),
-        new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.UglifyJsPlugin({
+        new webpack.NoErrorsPlugin(), //stops the build if there is any error.
+        new webpack.optimize.DedupePlugin(), //detects identical (and nearly identical) files and removes them from the output.
+        new webpack.optimize.UglifyJsPlugin({ //minifies the bundles
             mangle: {
                 keep_fnames: true
             }

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Book} from './Book';
-import {BookService} from "./BookService";
+import {Book} from './shared/book.model';
+import {BookService} from "./shared/book.service.ts";
 
 @Component({
     styles: [`
@@ -54,20 +54,20 @@ import {BookService} from "./BookService";
     text-align: center;
   }
 `],
-    selector: 'my-app',
+    selector:'book-list-component',
     template: `
-    <h2>My Book List</h2>
+    <h2>Book List</h2>
     <ul class="books">
       <li *ngFor="let book of bookList" (click)="onSelect(book)" [class.selected]="book === selectedBook">
         <span class="badge">{{book.iSBN}}</span> {{book.originalTitle}} 
       </li>
     </ul>
-    <BookDetailComponent [book]="selectedBook"></BookDetailComponent>
+    <book-detail-component [book]="selectedBook"></book-detail-component>
 `,
     providers: [BookService]
 })
 
-export class AppComponent implements OnInit {
+export class BookListComponent implements OnInit {
     bookList: Book[];
     selectedBook: Book;
 
