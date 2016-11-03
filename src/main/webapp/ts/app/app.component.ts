@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'my-app',
+    selector: 'sg-my-app',
     template: `
-      <book-list-component></book-list-component>
+      <sg-book-list-component></sg-book-list-component>
     `,
 })
 export class AppComponent {

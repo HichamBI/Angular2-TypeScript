@@ -1,10 +1,10 @@
-import {NgModule}      from '@angular/core';
-import {CommonModule}       from '@angular/common'
-import {FormsModule}   from '@angular/forms';
+import { NgModule }      from '@angular/core';
+import { CommonModule }       from '@angular/common'
+import { FormsModule }   from '@angular/forms';
 
-import {BookDetailComponent} from "./book-detail.component";
-import {BookListComponent} from "./book-list.component";
-import {BookService} from "./shared/book.service";
+import { BookDetailComponent } from "./book-detail.component";
+import { BookListComponent } from "./book-list.component";
+import { BookService } from "./shared/book.service";
 
 
 @NgModule({

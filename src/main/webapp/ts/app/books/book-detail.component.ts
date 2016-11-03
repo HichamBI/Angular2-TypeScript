@@ -1,8 +1,8 @@
-import {Component, Input} from '@angular/core';
-import {Book} from "./shared/book.model.ts";
+import { Component, Input } from '@angular/core';
+import { Book } from "./shared/book.model.ts";
 
 @Component({
-    selector: 'book-detail-component',
+    selector: 'sg-book-detail-component',
     template: `
     <div *ngIf="book">
         <h2>{{book.originalTitle}} details!</h2>

@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {Book} from './shared/book.model';
-import {BookService} from "./shared/book.service.ts";
+import { Component, OnInit } from '@angular/core';
+import { Book } from './shared/book.model';
+import { BookService } from "./shared/book.service.ts";
 
 @Component({
     styles: [`
@@ -54,7 +54,7 @@ import {BookService} from "./shared/book.service.ts";
     text-align: center;
   }
 `],
-    selector: 'book-list-component',
+    selector: 'sg-book-list-component',
     template: `
     <h2>Book List</h2>
     <ul class="books">
@@ -62,25 +62,24 @@ import {BookService} from "./shared/book.service.ts";
         <span class="badge">{{book.iSBN}}</span> {{book.originalTitle}} 
       </li>
     </ul>
-    <book-detail-component [book]="selectedBook"></book-detail-component>
+    <sg-book-detail-component [book]="selectedBook"></sg-book-detail-component>
 `,
 })
 
 export class BookListComponent implements OnInit {
-    bookList:Book[];
-    selectedBook:Book;
+    bookList: Book[];
+    selectedBook: Book;
 
 
-    constructor(private bookService:BookService) {
+    constructor(private bookService: BookService) {
 
     }
 
-    ngOnInit():void {
+    ngOnInit(): void {
         this.bookService.getBookList().then(books => this.bookList = books);
     }
 
-
-    onSelect(book:Book):void {
+    onSelect(book: Book): void {
         this.selectedBook = book;
     }
 }
