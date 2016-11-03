@@ -19,6 +19,9 @@ target/
 # Node
 node_modules/
 
+# NPM
+*.log
+
 # TypeScript
 typings/
 
