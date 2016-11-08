@@ -1,0 +1,10 @@
+<h3>Top Books</h3>
+<div class="grid grid-pad">
+    <nav>
+    <a *ngFor="let book of bookList" [routerLink]="['/book-detail', book.iSBN]" class="col-1-4">
+        <div class="module book">
+            <h4>{{book.originalTitle}}</h4>
+        </div>
+    </a>
+    </nav>
+</div>

@@ -1,0 +1,11 @@
+<div *ngIf="book">
+    <h2>{{book.originalTitle}} details!</h2>
+    <div><label>ISBN: </label>{{book.iSBN}}</div>
+    <div><label>Author: </label>{{book.author}}</div>
+    <div><label>PublicationDate: </label>{{book.publicationDate | date}}</div>
+    <div>
+        <label>Original Title: </label>
+        <input [(ngModel)]="book.originalTitle" placeholder="Original Title"/>
+    </div>
+    <button (click)="goBack()">Back</button>
+</div>
