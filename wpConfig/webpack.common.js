@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var helpers = require('./helpers');
 
 module.exports = {
@@ -26,6 +27,26 @@ module.exports = {
             {
                 test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
                 loader: 'file?name=assets/[name].[hash].[ext]'
+            },
+            {
+                test: /\.css$/,
+                exclude: helpers.root('src/main/webapp/ts/app'),
+                loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
+            },
+            {
+                test: /\.css$/,
+                include: helpers.root('src/main/webapp/ts/app'),
+                loader: 'raw'
+            },
+            {
+                test: /\.styl/,
+                include: helpers.root('src/main/webapp/ts/app'),
+                loader: 'raw!stylus'
+            },
+            {
+                test: /\.less$/,
+                include: helpers.root('src/main/webapp/ts/app'),
+                loader: 'raw!less-loader'
             }
         ]
     },
