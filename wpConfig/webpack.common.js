@@ -10,7 +10,7 @@ module.exports = {
     },
 
     resolve: {
-        extensions: ['', '.ts', '.js'] //Imports possible extensions
+        extensions: ['', '.ts', '.js', 'html', 'css', 'less', 'styl'] //Imports possible extensions
     },
 
     module: {
