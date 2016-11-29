@@ -1,0 +1,37 @@
+<button class="btn btn-default" (click)="modal.open()">Add new Book</button>
+
+<modal style="z-index: 1049" #modal>
+    <form #f="ngForm">
+        <modal-header [show-close]="true">
+            <h2>Add new Book</h2>
+        </modal-header>
+        <modal-body>
+            <div class="form-group">
+                <label for="originalTitle" >Original Title</label>
+                <input id="originalTitle" name="originalTitle" type="text" class="form-control" [(ngModel)]="book.originalTitle" #originalTitle="ngModel"
+                       placeholder="Original Title" required minlength="5"/>
+                <div class="alert alert-danger" [hidden]="originalTitle.valid || (originalTitle.pristine && !f.submitted)">Title is required (minimum 5 characters).</div>
+            </div>
+            <div class="form-group">
+                <label for="iSBN">ISBN</label>
+                <input id="iSBN" name="iSBN" type="number" class="form-control" [(ngModel)]="book.iSBN" #iSBN="ngModel" placeholder="ISBN" required/>
+                <div class="alert alert-danger" [hidden]="iSBN.valid || (iSBN.pristine && !f.submitted)">ISBN is required.</div>
+            </div>
+            <div class="form-group">
+                <label for="author">Author</label>
+                <input id="author" name="author" class="form-control" [(ngModel)]="book.author" #author="ngModel" placeholder="Author name" required/>
+                <div class="alert alert-danger" [hidden]="author.valid || (author.pristine && !f.submitted)">Author is required.</div>
+            </div>
+            <div class="form-group">
+                <label for="publicationDate">Publication Date</label>
+                <input id="publicationDate" name="publicationDate" type="date" class="form-control" [(ngModel)]="book.publicationDate" #publicationDate="ngModel"
+                       placeholder="Publication Date" required/>
+                <div class="alert alert-danger" [hidden]="publicationDate.valid || (publicationDate.pristine && !f.submitted)">Publication Date is required.</div>
+            </div>
+        </modal-body>
+        <modal-footer>
+            <button type="button" class="btn btn-default" data-dismiss="modal" (click)="modal.close()">Cancel</button>
+            <button type="button" class="btn btn-primary" [disabled]="!f.valid" (click)="createBook(f.value, f.valid); modal.close()">Save</button>
+        </modal-footer>
+    </form>
+</modal>

@@ -2,8 +2,13 @@
 <ul class="books">
     <li *ngFor="let book of bookList" (click)="onSelect(book)" [class.selected]="book === selectedBook">
         <span class="badge">{{book.iSBN}}</span> {{book.originalTitle}}
+        <span class="delete-icon glyphicon glyphicon-trash" aria-hidden="true"
+              (click)="onDelete(book);">
+        </span>
     </li>
 </ul>
+<sg-create-book-component [bookList]=bookList></sg-create-book-component>
+
 <div *ngIf="selectedBook">
     <h2>
         Selected Book : {{selectedBook.originalTitle | uppercase}}

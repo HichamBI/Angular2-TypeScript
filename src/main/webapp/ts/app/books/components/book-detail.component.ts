@@ -28,4 +28,8 @@ export class BookDetailComponent implements OnInit {
     goBack(): void {
         this.location.back();
     }
+
+    saveBookDetails() : void {
+        this.bookService.updateBook(this.book);
+    }
 }

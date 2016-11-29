@@ -1,10 +1,11 @@
 {
-  "name": "Angular2-TypeScript",
+  "name": "Spring-Angular2-Webpack",
   "version": "1.0.0",
   "scripts": {
-    "start": "webpack-dev-server --inline --progress --port 8080",
+    "start": "webpack-dev-server --inline --progress --port 9090",
+    "build:dev": "webpack --progress --colors --watch",
     "test": "karma start",
-    "build": "rimraf dist && webpack --config wpConfig/webpack.prod.js --progress --profile --bail"
+    "build:prod": "rimraf dist && webpack --config wpConfig/webpack.prod.js --progress --profile --bail"
   },
   "license": "ISC",
   "dependencies": {
@@ -20,6 +21,9 @@
     "angular-in-memory-web-api": "~0.1.13",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
+    "jquery": "^3.1.1",
+    "ng2-bs3-modal": "^0.10.4",
+    "ng2-datepicker": "^2.0.0-dev6",
     "reflect-metadata": "^0.1.8",
     "rxjs": "5.0.0-beta.12",
     "zone.js": "^0.6.25"

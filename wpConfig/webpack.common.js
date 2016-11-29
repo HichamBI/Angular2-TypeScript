@@ -52,8 +52,12 @@ module.exports = {
     },
 
     plugins: [
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        }),
         new webpack.optimize.CommonsChunkPlugin({ //Keep the vendor code out of the app
-            name: ['app', 'vendor']
+            name: ['app', 'vendor', 'polyfills']
         }),
 
         new HtmlWebpackPlugin({ //Inject scripts and links into index.html

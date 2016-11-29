@@ -1,6 +1,7 @@
-import { Component, OnInit, Output, EventEmitter, Input, style } from '@angular/core';
-import { Book } from '../shared/book.model';
+import { Component, Output, EventEmitter, Input } from "@angular/core";
+import { Book } from "../shared/book.model";
 import { Router } from "@angular/router";
+import { BookService } from "../shared/book.service";
 
 @Component({
     selector: 'sg-book-list-component',
@@ -14,8 +15,7 @@ export class BookListComponent {
 
     @Output() onBookSelected = new EventEmitter<Book>();
 
-
-    constructor(private router: Router) {
+    constructor(private router: Router, private bookService: BookService) {
 
     }
 
@@ -23,7 +23,19 @@ export class BookListComponent {
         this.onBookSelected.emit(book);
     }
 
+    onDelete(book: Book): void {
+        this.removeBookFromList(book);
+        this.bookService.deleteBook(book.iSBN);
+    }
+
     displayDetail(): void {
         this.router.navigate(['/book-detail', this.selectedBook.iSBN]);
+    }
+
+    private removeBookFromList(book: Book): void {
+        var bookIndex = this.bookList.indexOf(book, 0);
+        if (bookIndex > -1) {
+            this.bookList.splice(bookIndex, 1);
+        }
     }
 }
