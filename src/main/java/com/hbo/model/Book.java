@@ -1,21 +1,34 @@
-/*
- * Created by Hicham B.I. on 02/10/16.
- */
-package model;
+package com.hbo.model;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import serializer.BookSerializer;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.time.LocalDate;
 
-@JsonSerialize(using = BookSerializer.class)
+@Entity
+@Table(name = "BOOK")
 public class Book {
 
-    private final Integer iSBN;
-    private final String originalTitle;
-    private final String author;
-    private final LocalDate publicationDate;
+    @Id
+    @Column(name= "ISBN")
+    private Integer iSBN;
+    
+    @Column(name= "ORIGINAL_TITLE")
+    private String originalTitle;
+    
+    @Column(name= "AUTHOR")
+    private String author;
+    
+    @Column(name= "PUBLICATION_DATE")
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate publicationDate;
 
+    public Book() {
+    }
+    
     public Book(Integer iSBN, String originalTitle, String author, LocalDate publicationDate) {
         this.iSBN = iSBN;
         this.originalTitle = originalTitle;
